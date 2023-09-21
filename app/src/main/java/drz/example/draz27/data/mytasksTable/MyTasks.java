@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey;
     public long time;//زمن بناء المهمة
     public long subjId;//رقم موضوع المهمة
     public long userId;//رقم المستعمل الذي اضاف المهمة
-
+    public boolean isCompleted;//هل تمت المهمة
     public long getKeyid() {
         return keyid;
     }
@@ -64,6 +64,14 @@ import androidx.room.PrimaryKey;
         this.userId = userId;
     }
 
+    public boolean isCompleted() {
+        return isCompleted;
+    }
+
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
+    }
+
     @Override
     public String toString() {
         return "MyTasks{" +
@@ -73,6 +81,7 @@ import androidx.room.PrimaryKey;
                 ", time=" + time +
                 ", subjId=" + subjId +
                 ", userId=" + userId +
+                ", isCompleted=" + isCompleted +
                 '}';
     }
 }
