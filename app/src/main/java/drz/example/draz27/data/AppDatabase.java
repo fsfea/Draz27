@@ -16,7 +16,8 @@ import drz.example.draz27.data.usersTable.MyuserQuery;
 
 
         @Database(entities = {MyUser.class, MySubject.class, MyTasks.class},version = 5)
-        public abstract class AppDatabase extends RoomDatabase {
+        public abstract class AppDatabase extends RoomDatabase
+        {
                 private static AppDatabase db;
 
                 public abstract MyuserQuery.MyUserQuery getMyUserQuery();
