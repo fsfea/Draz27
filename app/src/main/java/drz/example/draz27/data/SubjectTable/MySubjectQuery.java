@@ -1,4 +1,10 @@
 package drz.example.draz27.data.SubjectTable;
 
-public interface MySubjectQuery {
+import androidx.room.Dao;
+
+@Dao
+public interface MySubjectQuery
+{
+
+
 }
