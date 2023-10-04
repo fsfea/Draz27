@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import drz.example.draz27.data.AppDatabase;
+import drz.example.draz27.data.SubjectTable.MySubject;
+import drz.example.draz27.data.SubjectTable.MySubjectQuery;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -14,6 +18,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d("draz","onCreate");
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+
+        //بناء قاعدة البيانات وارجاع مؤشر عليها
+      AppDatabase db= AppDatabase.getDB(getApplicationContext());
+        // مؤشر لجدول
+        MySubjectQuery mySubjectQuery = db.getMySubjectQuery();
+        // بناء كائن من نوع الجدول وتحديد قيم الصفات
+        MySubject s1=new MySubject();
+        s1.setTitle("Math");
+        MySubject s2=new MySubject();
+        s2.title="Computers";
+        //اضافة كائن للجدول
+       MySubjectQuery.insert(s1);
+        MySubjectQuery.insert(s2);
     }
 
     @Override
