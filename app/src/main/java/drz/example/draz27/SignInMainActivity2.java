@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 public class SignInMainActivity2 extends AppCompatActivity
 {
-private text
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
