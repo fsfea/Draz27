@@ -1,10 +1,14 @@
 package drz.example.draz27;
 
+import static android.os.Build.VERSION_CODES.S;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
+import java.util.List;
 
 import drz.example.draz27.data.AppDatabase;
 import drz.example.draz27.data.SubjectTable.MySubject;
@@ -19,18 +23,28 @@ public class MainActivity extends AppCompatActivity {
         Log.d("draz","onCreate");
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
 
-        //بناء قاعدة البيانات وارجاع مؤشر عليها
+        //بناء قاعدة البيانات وارجاع مؤشر عليها1
       AppDatabase db= AppDatabase.getDB(getApplicationContext());
-        // مؤشر لجدول
+        //مؤشر لجدول2
         MySubjectQuery mySubjectQuery = db.getMySubjectQuery();
-        // بناء كائن من نوع الجدول وتحديد قيم الصفات
+        //بناء كائن من نوع الجدول وتحديد قيم الصفات3
         MySubject s1=new MySubject();
         s1.setTitle("Math");
         MySubject s2=new MySubject();
         s2.title="Computers";
-        //اضافة كائن للجدول
+        //اضافة كائن للجدول4
        MySubjectQuery.insert(s1);
         MySubjectQuery.insert(s2);
+        // فحص هل تم حفظ ما سبق5
+        // استخراج وطباعة جميع معطيات الجدول المواضيع6
+        List<MySubject> allSubjects = mySubjectQuery.getAll();
+        for (MySubject e :allSubjects )
+        {
+            Log.d( "Ez ",e.title);
+            Toast.makeText(this, e.title, Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     @Override
