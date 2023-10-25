@@ -3,33 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        tools:layout_editor_absoluteX="140dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
 
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/srchV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+        <Spinner
+            android:id="@+id/spnrSubject"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <ListView
+            android:id="@+id/lstvTasks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
 </RelativeLayout>
