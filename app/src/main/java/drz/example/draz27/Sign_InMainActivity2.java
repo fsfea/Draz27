@@ -3,12 +3,25 @@ package drz.example.draz27;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Button;
 
-public class Sign_InMainActivity2 extends AppCompatActivity {
+import com.google.android.material.textfield.TextInputLayout;
+
+public class Sign_InMainActivity2 extends AppCompatActivity
+{
+    private TextInputLayout etShortTitle ;
+    private TextInputLayout etPassword ;
+    private Button btnSignUP ;
+    private Button btnsignin ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_main2);
+        etShortTitle = findViewById(R.id.etShortTitle);
+        etPassword = findViewById(R.id.etText);
+        btnSignUP = findViewById(R.id.btnSignUP);
+        btnsignin = findViewById(R.id.btnsignin);
+
     }
 }
