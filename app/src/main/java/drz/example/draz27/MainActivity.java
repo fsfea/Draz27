@@ -5,8 +5,14 @@ import static android.os.Build.VERSION_CODES.S;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.service.controls.actions.FloatAction;
 import android.util.Log;
+import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -16,10 +22,21 @@ import drz.example.draz27.data.SubjectTable.MySubjectQuery;
 
 public class MainActivity extends AppCompatActivity {
 
+    private FloatingActionButton fabAdd ;
+    private Spinner spnrSubject ;
+    private SearchView srchV ;
+    private ListView lstvTasks ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        fabAdd = findViewById(R.id.fabAdd);
+        spnrSubject = findViewById(R.id.spnrSubject);
+        srchV = findViewById(R.id.srchV);
+        lstvTasks = findViewById(R.id.lstvTasks);
+
+
         Log.d("draz","onCreate");
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
 

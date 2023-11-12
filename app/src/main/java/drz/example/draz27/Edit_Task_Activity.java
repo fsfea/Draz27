@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Edit_Task_Activity extends AppCompatActivity {
@@ -14,8 +15,8 @@ public class Edit_Task_Activity extends AppCompatActivity {
     private Button BTNCancel ;
     private SeekBar skbrImportance ;
     private TextView tvImpoertance ;
-    private TextInputLayout etShortTitle ;
-    private TextInputLayout etText ;
+    private TextInputEditText etShortTitle ;
+    private TextInputEditText etText ;
 
 
     @Override

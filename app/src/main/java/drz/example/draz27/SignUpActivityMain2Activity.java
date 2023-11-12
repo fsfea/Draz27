@@ -5,17 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class SignUpActivityMain2Activity extends AppCompatActivity {
 
     private Button btnUpdate ;
     private Button BTNCancel ;
-    private TextInputLayout etname ;
-    private TextInputLayout etphone ;
-    private TextInputLayout etShortTitle ;
-    private TextInputLayout etPassword ;
-    private TextInputLayout etre_password ;
+    private TextInputEditText etname ;
+    private TextInputEditText etphone ;
+    private TextInputEditText etShortTitle ;
+    private TextInputEditText etPassword ;
+    private TextInputEditText etre_password ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

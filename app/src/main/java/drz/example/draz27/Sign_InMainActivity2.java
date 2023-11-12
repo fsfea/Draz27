@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Sign_InMainActivity2 extends AppCompatActivity
 {
-    private TextInputLayout etShortTitle ;
-    private TextInputLayout etPassword ;
+    private TextInputEditText etShortTitle ;
+    private TextInputEditText etPassword ;
     private Button btnSignUP ;
     private Button btnsignin ;
 
