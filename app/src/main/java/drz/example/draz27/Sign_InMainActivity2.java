@@ -2,7 +2,9 @@ package drz.example.draz27;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -24,5 +26,10 @@ public class Sign_InMainActivity2 extends AppCompatActivity
         btnSignUP = findViewById(R.id.btnSignUP);
         btnsignin = findViewById(R.id.btnsignin);
 
+    }
+    public void onClickSignUp (View v)
+    {
+        Intent i = new Intent( Sign_InMainActivity2.this,SignUpActivityMain2Activity.class );
+        startActivity(i);
     }
 }
