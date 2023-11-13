@@ -3,6 +3,7 @@ package drz.example.draz27;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -29,5 +30,10 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
         etPassword = findViewById(R.id.etText);
         etre_password = findViewById(R.id.etre_password);
 
+    }
+    public void onClickCancel (View v)
+    {
+
+        finish();
     }
 }
