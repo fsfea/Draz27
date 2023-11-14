@@ -8,7 +8,7 @@
     tools:context=".splash_screen">
 
     <TextView
-        android:id="@+id/Et_Text"
+        android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="38dp"
         android:gravity="center"

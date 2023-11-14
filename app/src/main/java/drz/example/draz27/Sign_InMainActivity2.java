@@ -2,6 +2,7 @@ package drz.example.draz27;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,12 +17,13 @@ public class Sign_InMainActivity2 extends AppCompatActivity {
     private Button btnSignUP;
     private Button btnsignin;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_main2);
         etShortTitle = findViewById(R.id.etShortTitle);
-        etPassword = findViewById(R.id.);
+        etPassword = findViewById(R.id.etPassword);
         btnSignUP = findViewById(R.id.btnSignUP);
         btnsignin = findViewById(R.id.btnsignin);
 

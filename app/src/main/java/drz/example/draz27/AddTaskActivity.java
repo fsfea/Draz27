@@ -26,7 +26,7 @@ public class AddTaskActivity extends AppCompatActivity {
         skbrImportance = findViewById(R.id.skbrImportance);
         tvImpoertance = findViewById(R.id.tvImpoertance);
         etShortTitle = findViewById(R.id.etShortTitle);
-        etText = findViewById(R.id.Et_Text);
+        etText = findViewById(R.id.etPassword);
 
 
 

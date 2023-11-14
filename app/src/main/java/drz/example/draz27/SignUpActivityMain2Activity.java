@@ -28,7 +28,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
         etname = findViewById(R.id.etname);
         etphone = findViewById(R.id.etphone);
         etShortTitle = findViewById(R.id.etShortTitle);
-        Et_Text= findViewById(R.id.Et_Text);
+        etPassword= findViewById(R.id.etPassword);
         etre_password = findViewById(R.id.etre_password);
 
     }
@@ -44,6 +44,8 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
         String password =etPassword.getText().toString();
         String re_password = etre_password.getText().toString();
         String name = etname.getText().toString();
+        String phone =  etphone.getText().toString();
+
         if (email.length() < 6 | email.contains("@") == false) {
             isAllOK = false;
 
@@ -54,6 +56,12 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
             isAllOK = false;
             etPassword.setError("Wrong Password");
         }
+          if (re_password.length() < 8 || re_password.contains(" ") == true) {
+
+              isAllOK = false;
+              etre_password.setError("Wrong Password");
+          }
+
         if (isAllOK) {
             Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
         }
