@@ -8,7 +8,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 public class Edit_Task_Activity extends AppCompatActivity {
     private Button btnUpdate ;
@@ -29,6 +28,6 @@ public class Edit_Task_Activity extends AppCompatActivity {
         skbrImportance = findViewById(R.id.skbrImportance);
         tvImpoertance = findViewById(R.id.tvImpoertance);
         etShortTitle = findViewById(R.id.etShortTitle);
-        etText = findViewById(R.id.etText);
+        etText = findViewById(R.id.Et_Text);
     }
 }
