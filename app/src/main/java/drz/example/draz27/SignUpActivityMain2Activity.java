@@ -69,7 +69,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
         if (phone.length() < 10 || phone.contains(" ") == true) {
 
             isAllOK = false;
-            etphone.setError("Wrong name");
+            etphone.setError("Wrong phone");
         }
 
         if (isAllOK) {

@@ -52,8 +52,8 @@ public class Sign_InMainActivity2 extends AppCompatActivity {
             Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
         }
     }
-    public void onClickSignin(View v)
+    public void onClickSign_In(View v)
     {
-
+checkEmailPassw();
     }
 }

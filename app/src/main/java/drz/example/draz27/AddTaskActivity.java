@@ -3,9 +3,11 @@ package drz.example.draz27;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -33,14 +35,36 @@ public class AddTaskActivity extends AppCompatActivity {
 
     private void checkEmailPassw() {
         boolean isAllOK = true;
-        String shortTitle = etShortTitle.getText().toString();
-        String text = etText.getText().toString();
+        String short_title = etShortTitle.getText().toString();
+        String Text = etText.getText().toString();
         String importance = tvImpoertance.getText().toString();
+        if (short_title.length() < 8 || short_title.contains(" ") == true) {
+
+            isAllOK = false;
+            etShortTitle.setError("Wrong short_title");
+        }
+        if (Text.length() < 8 || Text.contains(" ") == true) {
+
+            isAllOK = false;
+            etText.setError("Wrong text");
+        }
+
+        if (importance.length() < 8 || importance.contains(" ") == true) {
+
+            isAllOK = false;
+            tvImpoertance.setError("Wrong importance");
+        }
 
 
+        if (isAllOK) {
+            Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
+        }
 
 
-
+    }
+    public void onClickSave(View v)
+    {
+        checkEmailPassw();
 
     }
 }
