@@ -52,7 +52,7 @@ public class Sign_InMainActivity2 extends AppCompatActivity {
             Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
         }
     }
-    public void onClickSignIn(View v)
+    public void onClickSignin(View v)
     {
 
     }

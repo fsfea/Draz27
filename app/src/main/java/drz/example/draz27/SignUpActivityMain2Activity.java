@@ -59,14 +59,18 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
           if (re_password.length() < 8 || re_password.contains(" ") == true) {
 
               isAllOK = false;
-              etre_password.setError("Wrong Password");
+              etre_password.setError("Wrong re_Password");
           }
+        if (name.length() < 3 || name.contains(" ") == true) {
 
+            isAllOK = false;
+            etname.setError("Wrong name");
+        }
+        if (phone.length() < 10 || phone.contains(" ") == true) {
 
-
-
-
-
+            isAllOK = false;
+            etphone.setError("Wrong name");
+        }
 
         if (isAllOK) {
             Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
@@ -74,7 +78,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
 
     }
 
-    public void onClickSignIn(View v) {
+    public void onClickSignUp(View v) {
 
 
     }
