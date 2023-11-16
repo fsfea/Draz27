@@ -11,6 +11,11 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import drz.example.draz27.data.AppDatabase;
+import drz.example.draz27.data.AppDatabase_Impl;
+import drz.example.draz27.data.usersTable.MyUser;
+import drz.example.draz27.data.usersTable.MyuserQuery;
+
 public class Sign_InMainActivity2 extends AppCompatActivity {
     private TextInputEditText etShortTitle;
     private TextInputEditText etPassword;
@@ -50,10 +55,23 @@ public class Sign_InMainActivity2 extends AppCompatActivity {
         }
         if (isAllOK) {
             Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
+            AppDatabase db = AppDatabase.getDB(getApplicationContext());
+            MyuserQuery userQuery = (MyuserQuery) db.getMyUserQuery();
+            MyUser myUser = userQuery.checkEmailPassw(email, password);
+            if (myUser == null) {
+                Toast.makeText(this, "Wrong Email Or Password", Toast.LENGTH_LONG).show();
+            }
+                 else
+            {
+                Intent i = new Intent(Sign_InMainActivity2.this, MainActivity.class);
+                startActivity(i);
+                finish();
+            }
         }
+
     }
     public void onClickSign_In(View v)
     {
-checkEmailPassw();
+        checkEmailPassw();
     }
 }

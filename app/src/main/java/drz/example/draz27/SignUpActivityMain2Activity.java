@@ -9,6 +9,10 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import drz.example.draz27.data.AppDatabase;
+import drz.example.draz27.data.usersTable.MyUser;
+import drz.example.draz27.data.usersTable.MyuserQuery;
+
 public class SignUpActivityMain2Activity extends AppCompatActivity {
 
     private Button btnUpdate;
@@ -28,7 +32,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
         etname = findViewById(R.id.etname);
         etphone = findViewById(R.id.etphone);
         etShortTitle = findViewById(R.id.etShortTitle);
-        etPassword= findViewById(R.id.etPassword);
+        etPassword = findViewById(R.id.etPassword);
         etre_password = findViewById(R.id.etre_password);
 
     }
@@ -41,10 +45,10 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
     private void checkEmailPassw() {
         boolean isAllOK = true;
         String email = etShortTitle.getText().toString();
-        String password =etPassword.getText().toString();
+        String password = etPassword.getText().toString();
         String re_password = etre_password.getText().toString();
         String name = etname.getText().toString();
-        String phone =  etphone.getText().toString();
+        String phone = etphone.getText().toString();
 
         if (email.length() < 6 | email.contains("@") == false) {
             isAllOK = false;
@@ -56,11 +60,11 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
             isAllOK = false;
             etPassword.setError("Wrong Password");
         }
-          if (re_password.length() < 8 || re_password.contains(" ") == true) {
+        if (re_password.length() < 8 || re_password.contains(" ") == true) {
 
-              isAllOK = false;
-              etre_password.setError("Wrong re_Password");
-          }
+            isAllOK = false;
+            etre_password.setError("Wrong re_Password");
+        }
         if (name.length() < 3 || name.contains(" ") == true) {
 
             isAllOK = false;
@@ -74,12 +78,27 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
 
         if (isAllOK) {
             Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
+            AppDatabase db = AppDatabase.getDB(getApplicationContext());
+            MyuserQuery userQuery = (MyuserQuery) db.getMyUserQuery();
+            if (userQuery.checkEmail(email) != null)
+            {
+                etShortTitle.setError("found email");
+            }
+            else
+            {
+                MyUser myUser=new MyUser();
+                myUser.email=email; myUser.fullName=name;
+                myUser.phone=phone; myUser.passw=password;
+                ((MyuserQuery.MyUserQuery) userQuery).insert(myUser);
+                finish();
+            }
         }
-
     }
 
-    public void onClickSignUp(View v) {checkEmailPassw();
+        public void onClickSignUp (View v)
+        {
+            checkEmailPassw();
 
 
+        }
     }
-}

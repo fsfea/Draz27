@@ -9,6 +9,10 @@ import androidx.room.Update;
 import java.util.List;
 
 public interface MyuserQuery {
+    MyUser checkEmailPassw(String email, String password);
+
+    boolean checkEmail(String email);
+
     @Dao//لتحديد ان الواجهة تحوي استعلامات على قاعدة البيانات
     public interface MyUserQuery {
         @Query("SELECT * FROM MyUser")
