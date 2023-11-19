@@ -7,14 +7,11 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.List;
-
+@Dao//لتحديد ان الواجهة تحوي استعلامات على قاعدة البيانات
 public interface MyuserQuery {
-    MyUser checkEmailPassw(String email, String password);
 
-    boolean checkEmail(String email);
 
-    @Dao//لتحديد ان الواجهة تحوي استعلامات على قاعدة البيانات
-    public interface MyUserQuery {
+
         @Query("SELECT * FROM MyUser")
         List<MyUser> getAll();
 
@@ -24,6 +21,9 @@ public interface MyuserQuery {
         @Query("SELECT * FROM MyUser WHERE email = :myEmail AND " +
                 "passw = :myPassw LIMIT 1")
         MyUser checkEmailPassw(String myEmail, String myPassw);
+
+        @Query("SELECT * FROM MyUser WHERE email = :myEmail")
+        MyUser checkEmail(String myEmail);
 
         @Insert
         void insertAll(MyUser... users);
@@ -38,6 +38,7 @@ public interface MyuserQuery {
         void insert(MyUser myUser);
         @Update
         void update(MyUser...values);
-    }
+
+
 
 }
