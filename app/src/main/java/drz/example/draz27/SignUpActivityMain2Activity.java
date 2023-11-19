@@ -79,7 +79,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
         if (isAllOK) {
             Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
             AppDatabase db = AppDatabase.getDB(getApplicationContext());
-            MyuserQuery userQuery = (MyuserQuery) db.getMyUserQuery();
+            MyuserQuery userQuery =db.getMyUserQuery();
             if (userQuery.checkEmail(email)!= null)
             {
                 etShortTitle.setError("found email");
@@ -89,7 +89,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
                 MyUser myUser=new MyUser();
                 myUser.email=email; myUser.fullName=name;
                 myUser.phone=phone; myUser.passw=password;
-                ((MyuserQuery) userQuery).insert(myUser);
+                userQuery.insert(myUser);
                 finish();
             }
         }

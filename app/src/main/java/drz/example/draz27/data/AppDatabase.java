@@ -42,7 +42,7 @@ public abstract class AppDatabase extends RoomDatabase
                  * @return
                  */
 
-                public abstract MyuserQuery.MyUserQuery getMyUserQuery();
+                public abstract MyuserQuery getMyUserQuery();
 
                 /**
                  *  يعيد كائن لعمليات جدول الموضيع
