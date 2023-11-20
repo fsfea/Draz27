@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Log.d("draz","onCreate");
-        Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
 
         //بناء قاعدة البيانات وارجاع مؤشر عليها1
       AppDatabase db= AppDatabase.getDB(getApplicationContext());
@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
         List<MySubject> allSubjects = mySubjectQuery.getAll();
         for (MySubject e :allSubjects )
         {
-            Log.d( "Ez ",e.title);
-            Toast.makeText(this, e.title, Toast.LENGTH_SHORT).show();
+            Log.d( " "," ");
+            Toast.makeText(this, " ", Toast.LENGTH_SHORT).show();
         }
 
 
