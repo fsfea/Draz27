@@ -35,7 +35,7 @@ public class Sign_InMainActivity2 extends AppCompatActivity {
     }
 
     public void onClickSignUp(View v) {
-        Intent i = new Intent(Sign_InMainActivity2.this, MainActivity.class);
+        Intent i = new Intent(Sign_InMainActivity2.this, SignUpActivityMain2Activity.class);
         startActivity(i);
     }
 
