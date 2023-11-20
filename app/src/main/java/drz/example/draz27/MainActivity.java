@@ -4,9 +4,11 @@ import static android.os.Build.VERSION_CODES.S;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.service.controls.actions.FloatAction;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Spinner;
@@ -31,7 +33,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         fabAdd = findViewById(R.id.fabAdd);
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { Intent i = new Intent(MainActivity.this, AddTaskActivity.class);
+                startActivity(i);
+
+            }
+        });
         spnrSubject = findViewById(R.id.spnrSubject);
         srchV = findViewById(R.id.srchV);
         lstvTasks = findViewById(R.id.lstvTasks);
