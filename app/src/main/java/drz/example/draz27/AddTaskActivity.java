@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import drz.example.draz27.data.AppDatabase;
+import drz.example.draz27.data.SubjectTable.MySubjectQuery;
+
 public class AddTaskActivity extends AppCompatActivity {
     private Button btnUpdate;
     private Button BTNCancel;
@@ -34,8 +37,14 @@ public class AddTaskActivity extends AppCompatActivity {
         etShortTitle = findViewById(R.id.etShortTitle);
         etText = findViewById(R.id.etPassword);
         autoEtSubj = findViewById(R.id.autoEtSubj);
-
+        initAutoEtSubjects();
     }
+private void initAutoEtSubjects(){
+      AppDatabase db =AppDatabase.getDB(getApplicationContext());
+      MySubjectQuery subjectQuery=db.getMySubjectQuery();
+}
+
+
 
     private void checkEmailPassw() {
         boolean isAllOK = true;
