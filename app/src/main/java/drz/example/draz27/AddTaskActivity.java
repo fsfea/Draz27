@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -18,6 +19,8 @@ public class AddTaskActivity extends AppCompatActivity {
     private TextView tvImpoertance;
     private TextInputEditText etShortTitle;
     private TextInputEditText etText;
+    private TextView textView ;
+    private AutoCompleteTextView etSubject ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +32,7 @@ public class AddTaskActivity extends AppCompatActivity {
         tvImpoertance = findViewById(R.id.tvImpoertance);
         etShortTitle = findViewById(R.id.etShortTitle);
         etText = findViewById(R.id.etPassword);
-
-
+        etSubject = findViewById(R.id.etSubject);
     }
 
     private void checkEmailPassw() {
@@ -67,4 +69,10 @@ public class AddTaskActivity extends AppCompatActivity {
         checkEmailPassw();
 
     }
-}
+    private AutoCompleteTextView etSubject;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_task);
+        etSubject =findViewByld(R.id.etSubject);
+

@@ -58,6 +58,17 @@
             android:max="5"
             android:progress="1" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subject(choose Or write}" />
+
+        <AutoCompleteTextView
+            android:id="@+id/etSubject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -90,5 +101,6 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
     </LinearLayout>
 </RelativeLayout>
