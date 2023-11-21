@@ -19,8 +19,9 @@ public class AddTaskActivity extends AppCompatActivity {
     private TextView tvImpoertance;
     private TextInputEditText etShortTitle;
     private TextInputEditText etText;
-    private TextView textView ;
-    private AutoCompleteTextView etSubject ;
+    private TextView textView;
+    private AutoCompleteTextView autoEtSubj;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,8 @@ public class AddTaskActivity extends AppCompatActivity {
         tvImpoertance = findViewById(R.id.tvImpoertance);
         etShortTitle = findViewById(R.id.etShortTitle);
         etText = findViewById(R.id.etPassword);
-        etSubject = findViewById(R.id.etSubject);
+        autoEtSubj = findViewById(R.id.autoEtSubj);
+
     }
 
     private void checkEmailPassw() {
@@ -64,15 +66,12 @@ public class AddTaskActivity extends AppCompatActivity {
 
 
     }
-    public void onClickSave(View v)
-    {
+
+    public void onClickSave(View v) {
         checkEmailPassw();
 
     }
-    private AutoCompleteTextView etSubject;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_task);
-        etSubject =findViewByld(R.id.etSubject);
+
+
+}
 

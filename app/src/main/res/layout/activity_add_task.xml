@@ -65,7 +65,7 @@
             android:text="Subject(choose Or write}" />
 
         <AutoCompleteTextView
-            android:id="@+id/etSubject"
+            android:id="@+id/autoEtSubj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
