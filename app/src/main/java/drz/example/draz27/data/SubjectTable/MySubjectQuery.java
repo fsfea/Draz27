@@ -29,6 +29,8 @@ public interface MySubjectQuery
 
     @Update
     void update(MySubject... values);
+
+    List<MySubject> getAllSubjects();
 }
 
 

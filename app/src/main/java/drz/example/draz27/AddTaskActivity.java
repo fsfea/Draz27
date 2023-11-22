@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -12,8 +13,12 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.List;
+
 import drz.example.draz27.data.AppDatabase;
+import drz.example.draz27.data.SubjectTable.MySubject;
 import drz.example.draz27.data.SubjectTable.MySubjectQuery;
+import drz.example.draz27.data.mytasksTable.MyTasks;
 
 public class AddTaskActivity extends AppCompatActivity {
     private Button btnUpdate;
@@ -39,10 +44,26 @@ public class AddTaskActivity extends AppCompatActivity {
         autoEtSubj = findViewById(R.id.autoEtSubj);
         initAutoEtSubjects();
     }
-private void initAutoEtSubjects(){
+private void initAutoEtSubjects()
+{
+
       AppDatabase db =AppDatabase.getDB(getApplicationContext());
       MySubjectQuery subjectQuery=db.getMySubjectQuery();
+    List<MySubject>allSubjects=subjectQuery.getAllSubjects();
+    ArrayAdapter<MySubject> adapter=new ArrayAdapter<MySubject>(this, android.R.layout.simple_dropdown_item_1line);
+    adapter.addAll(allSubjects);
+    autoEtSubj.setAdapter(adapter);
+
+    autoEtSubj.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            autoEtSubj.showDropDown();
+        }
+    });
+
 }
+
+
 
 
 
@@ -80,6 +101,7 @@ private void initAutoEtSubjects(){
         checkEmailPassw();
 
     }
+
 
 
 }
