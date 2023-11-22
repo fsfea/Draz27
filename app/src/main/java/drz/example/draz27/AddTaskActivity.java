@@ -101,7 +101,68 @@ private void initAutoEtSubjects()
         checkEmailPassw();
 
     }
+    private void checkShortTitleAndText()
+    {
 
+        boolean isAllOk=true; // يحوي نتيجة فحص الحقول ان كانت سليمة
+
+        String shortTitle=etShortTitle.getText().toString();
+        String text=etText.getText().toString();
+        String whichsubj= autoEtSubj.getText().toString();
+
+
+        int importancee=skbrImportance.getProgress();
+
+
+        if (shortTitle.length()<1)
+        {
+            isAllOk=false;
+            etShortTitle.setError("short title is empty");
+        }
+
+        if (text.length()<1)
+        {
+            isAllOk=false;
+            etText.setError("text is empty");
+        }
+        if (whichsubj.length()<1)
+        {
+            isAllOk=false;
+            autoEtSubj.setError("you didn't chose the subject");
+
+        }
+
+        if (isAllOk)
+        {
+            Toast.makeText(this,"All ok",Toast.LENGTH_SHORT).show();
+            AppDatabase db=AppDatabase.getDB(getApplicationContext());
+            MySubjectQuery subjectQuery=db.getMySubjectQuery();
+
+
+            if (subjectQuery.checkSubject(whichsubj)==null) // فحص هل الموضوع من قبل بالجدول
+            {
+                //بناء موضوع جديد واضافته
+                MySubject subject=new MySubject();
+                subject.title=whichsubj;
+                subjectQuery.insertAll(subject);
+            }
+            //استخراج id الموضوع لأننا بحاجة لرقمه التسلسلي
+
+            MySubject subject= subjectQuery.checkSubject(whichsubj);
+
+
+            MyTasks task=new MyTasks();
+            task.importance=importancee;
+            task.Text=text;
+            task.shortTitle=shortTitle;
+            task.subjId=subject.getKeyid();//تحديد رقم الموضوع للمهة
+            db.getMyTaskQuery().insertTask(task);//اضافة المهمة للجدول
+            finish();
+
+        }
+
+
+    }
 
 
 }

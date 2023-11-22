@@ -12,6 +12,7 @@ import androidx.room.PrimaryKey;
     public long keyid;//رقم المهمة
     public int importance;//درجة الاهمية 1-5
     public String Text;//نص المهمة
+    public String shortTitle ;
     public long time;//زمن بناء المهمة
     public long subjId;//رقم موضوع المهمة
     public long userId;//رقم المستعمل الذي اضاف المهمة
@@ -78,10 +79,19 @@ import androidx.room.PrimaryKey;
                 "keyid=" + keyid +
                 ", importance=" + importance +
                 ", Text='" + Text + '\'' +
+                ", shortTitle='" + shortTitle + '\'' +
                 ", time=" + time +
                 ", subjId=" + subjId +
                 ", userId=" + userId +
                 ", isCompleted=" + isCompleted +
                 '}';
+    }
+
+    public String getShortTitle() {
+        return shortTitle;
+    }
+
+    public void setShortTitle(String shortTitle) {
+        this.shortTitle = shortTitle;
     }
 }

@@ -8,11 +8,18 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.List;
+
+import drz.example.draz27.data.usersTable.MyUser;
+
 @Dao
 public interface MySubjectQuery
 {
     @Query("SELECT * FROM MyUser")
     List<MySubject> getAll();
+
+    @Query("SELECT * FROM MySubject WHERE title = :myTitle")
+    MySubject checkSubject(String myTitle);
+
     @Insert
     void insertAll(MySubject... users);
 
