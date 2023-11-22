@@ -14,7 +14,7 @@ import drz.example.draz27.data.usersTable.MyUser;
 @Dao
 public interface MySubjectQuery
 {
-    @Query("SELECT * FROM MyUser")
+    @Query("SELECT * FROM MySubject")
     List<MySubject> getAll();
 
     @Query("SELECT * FROM MySubject WHERE title = :myTitle")
@@ -36,7 +36,7 @@ public interface MySubjectQuery
 
     @Update
     void update(MySubject... values);
-
+    @Query("SELECT * FROM MySubject")
     List<MySubject> getAllSubjects();
 }
 
