@@ -74,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * عملية تجهيز السبنر بالمواضيع
+     */
+
     @Override
     protected void onRestart() {
         super.onRestart();
