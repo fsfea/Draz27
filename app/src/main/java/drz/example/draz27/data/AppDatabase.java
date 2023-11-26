@@ -22,7 +22,7 @@ version
 
 
 
-        @Database(entities = {MyUser.class, MySubject.class, MyTasks.class},version = 5)
+        @Database(entities = {MyUser.class, MySubject.class, MyTasks.class},version = 6)
         /**
          * الفئة المسؤولة عن بناء قاعدة البيانات بكل جداولها
          * وتوفر لنا كائن للتعمل مع قاعدة البيانات

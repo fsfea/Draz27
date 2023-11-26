@@ -53,19 +53,21 @@ public class Sign_InMainActivity2 extends AppCompatActivity {
             isAllOK = false;
             etPassword.setError("Wrong Password");
         }
-        if (isAllOK) {
+        if (isAllOK)
+        {
             Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
             AppDatabase db = AppDatabase.getDB(getApplicationContext());
             MyuserQuery userQuery = (MyuserQuery) db.getMyUserQuery();
             MyUser myUser = userQuery.checkEmailPassw(email, password);
-            if (myUser == null) {
+            if (myUser == null)
+            {
                 Toast.makeText(this, "Wrong Email Or Password", Toast.LENGTH_LONG).show();
             }
                  else
             {
                 Intent i = new Intent(Sign_InMainActivity2.this, MainActivity.class);
                 startActivity(i);
-                finish();
+
             }
         }
 
