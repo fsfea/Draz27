@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
         initSubjectSpnr();
+        initAllListView();
     }
         private void initSubjectSpnr()
         {
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         List<MyTasks>allTasks =tasksQuery.getAllTasks();
         ArrayAdapter<MyTasks>tsksAdapter = new ArrayAdapter<MyTasks>(this, android.R.layout.simple_dropdown_item_1line);
         tsksAdapter.addAll(allTasks);
-        IstTasks
+        lstvTasks.setAdapter((tsksAdapter));
     }
     @Override
     protected void onPause() {
