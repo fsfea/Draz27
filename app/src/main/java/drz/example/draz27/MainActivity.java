@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.service.controls.actions.FloatAction;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -21,6 +22,8 @@ import java.util.List;
 import drz.example.draz27.data.AppDatabase;
 import drz.example.draz27.data.SubjectTable.MySubject;
 import drz.example.draz27.data.SubjectTable.MySubjectQuery;
+import drz.example.draz27.data.mytasksTable.MyTasks;
+import drz.example.draz27.data.mytasksTable.MyTasksQuery;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -89,8 +92,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+        initSubjectSpnr();
     }
+        private void initSubjectSpnr()
+        {
+            AppDatabase db =AppDatabase.getDB((getApplicationContext()));
+             MySubjectQuery subjectQuery =db.getMySubjectQuery();
+             List<MySubject>allSubjects =subjectQuery.getAllSubjects();
+            ArrayAdapter<String>subjectAdabter= new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
+            subjectAdabter.add("All");
+            for(MySubject subject : allSubjects){
+                subjectAdabter.add((subject.title));
+            }
+            spnrSubject.setAdapter((subjectAdabter));
 
+    }
+    private void initAllListView()
+    {
+        AppDatabase db =AppDatabase.getDB((getApplicationContext()));
+        MyTasksQuery tasksQuery=db.getMyTaskQuery();
+        List<MyTasks>allTasks =tasksQuery.getAllTasks();
+        ArrayAdapter<MyTasks>tsksAdapter = new ArrayAdapter<MyTasks>(this, android.R.layout.simple_dropdown_item_1line);
+        tsksAdapter.addAll(allTasks);
+        IstTasks
+    }
     @Override
     protected void onPause() {
         super.onPause();
