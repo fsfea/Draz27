@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.service.controls.actions.FloatAction;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<MyTasks>tsksAdapter = new ArrayAdapter<MyTasks>(this, android.R.layout.simple_dropdown_item_1line);
         tsksAdapter.addAll(allTasks);
         lstvTasks.setAdapter((tsksAdapter));
+        
     }
     @Override
     protected void onPause() {
@@ -145,5 +147,22 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<MyTasks>tsksAdapter = new ArrayAdapter<MyTasks>(this, android.R.layout.simple_dropdown_item_1line);
         tsksAdapter.addAll(allTasks);
         lstvTasks.setAdapter((tsksAdapter));
+        spnrSubject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String item =spnrSubject.getitem(I);
+                if (item.equals("ALL"))
+                    initAllListView();
+                else{
+                    MySubject subject =MySubjectQuery.checkSubject(item);
+                    initListBySubjId(subject.getKeyid());
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 }
