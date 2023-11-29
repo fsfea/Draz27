@@ -137,4 +137,13 @@ public class MainActivity extends AppCompatActivity {
         Log.d("EZ","ondestroy");
         Toast.makeText(this,"ondestroy",Toast.LENGTH_SHORT).show();
     }
+    private void initListBySubjId(long key_id)
+    {
+        AppDatabase db =AppDatabase.getDB((getApplicationContext()));
+        MyTasksQuery tasksQuery=db.getMyTaskQuery();
+        List<MyTasks>allTasks=tasksQuery.getTasksBySubjid(key_id);
+        ArrayAdapter<MyTasks>tsksAdapter = new ArrayAdapter<MyTasks>(this, android.R.layout.simple_dropdown_item_1line);
+        tsksAdapter.addAll(allTasks);
+        lstvTasks.setAdapter((tsksAdapter));
+    }
 }

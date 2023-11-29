@@ -56,4 +56,6 @@ public interface MyTasksQuery
     @Query("DELETE FROM MyTasks WHERE keyid=:id")
     void delTaskById(long id);
 
+    @Query("SELECT * FROM MyTasks WHERE subjid=:mysubjid ")
+    List<MyTasks> getTasksBySubjid(long mysubjid);
 }
