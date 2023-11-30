@@ -107,8 +107,29 @@ public class MainActivity extends AppCompatActivity {
                 subjectAdabter.add((subject.title));
             }
             spnrSubject.setAdapter((subjectAdabter));
+            spnrSubject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    //استخراج الموضوع حسب رقمه الترتيبي i
+                    String item=subjectAdabter.getItem(i);
+                    if (item.equals("All"))//  الكلمة ALL تعني عرض جميع المهمات
+                    {
+                        initAllListView();
+                    }
+                    else
+                    {
+                        MySubject subject=MySubjectQuery.checkSubject(item);
+                        //
+                        initListBySubjId(subject.getKeyid());
+                    }
+                }
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
 
+                }
+            });
     }
+
     private void initAllListView()
     {
         AppDatabase db =AppDatabase.getDB((getApplicationContext()));
@@ -147,22 +168,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<MyTasks>tsksAdapter = new ArrayAdapter<MyTasks>(this, android.R.layout.simple_dropdown_item_1line);
         tsksAdapter.addAll(allTasks);
         lstvTasks.setAdapter((tsksAdapter));
-        spnrSubject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String item =spnrSubject.getitem(I);
-                if (item.equals("ALL"))
-                    initAllListView();
-                else{
-                    MySubject subject =MySubjectQuery.checkSubject(item);
-                    initListBySubjId(subject.getKeyid());
-                }
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
     }
 }

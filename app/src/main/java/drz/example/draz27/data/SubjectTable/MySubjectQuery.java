@@ -17,8 +17,8 @@ public interface MySubjectQuery
     @Query("SELECT * FROM MySubject")
     List<MySubject> getAll();
 
-    @Query("SELECT * FROM MySubject WHERE title = :myTitle")
-    MySubject checkSubject(String myTitle);
+    @Query("SELECT * FROM MySubject WHERE title=:MySubject")
+    MySubject checkSubject(String MySubject);
 
     @Insert
     void insertAll(MySubject... users);
