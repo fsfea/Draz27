@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else
                     {
-                        MySubject subject=MySubjectQuery.checkSubject(item);
+                        MySubject subject=subjectQuery.checkSubject(item);
                         //
                         initListBySubjId(subject.getKeyid());
                     }
