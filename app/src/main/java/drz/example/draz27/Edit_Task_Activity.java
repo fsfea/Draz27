@@ -2,8 +2,11 @@ package drz.example.draz27;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -29,5 +32,14 @@ public class Edit_Task_Activity extends AppCompatActivity {
         tvImpoertance = findViewById(R.id.tvImpoertance);
         etShortTitle = findViewById(R.id.etShortTitle);
         etText = findViewById(R.id.etPassword);
+    }
+    private void onClickUpdate(View v){
+        Intent i = new Intent(Edit_Task_Activity.this, MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+    public void onClickCancel2(View v) {
+
+        finish();
     }
 }

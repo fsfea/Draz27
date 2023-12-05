@@ -163,7 +163,10 @@ private void initAutoEtSubjects()
 
 
     }
+    public void onClickCancel2(View v) {
 
+        finish();
+    }
 
 }
 
