@@ -2,6 +2,7 @@ package drz.example.draz27;
 
 import static android.os.Build.VERSION_CODES.S;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
@@ -9,10 +10,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.service.controls.actions.FloatAction;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -77,7 +80,29 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.itmSettings) {
+            Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+        }
+
+        if (item.getItemId() == R.id.itmlogOut) {
+            Toast.makeText(this, "LogOut", Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
+    public void ShowPopUpMenu (View v)
+    {
+        PopupMenu popup = new PopupMenu(this,v);
+        popup.inflate(R.menu.popup_menu);
+        popup.show();
+    }
     /**
      * عملية تجهيز السبنر بالمواضيع
      */
@@ -129,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
     }
+
+
 
     private void initAllListView()
     {
