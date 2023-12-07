@@ -101,6 +101,23 @@ public class MainActivity extends AppCompatActivity {
     {
         PopupMenu popup = new PopupMenu(this,v);
         popup.inflate(R.menu.popup_menu);
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if (item.getItemId()==R.id.itmAddTask){
+                    Toast.makeText(MainActivity.this,"Add",Toast.LENGTH_SHORT).show();;
+                            Intent i=new Intent(MainActivity.this,AddTaskActivity.class);
+                            startActivity(i);
+                }
+                if (item.getItemId()==R.id.itmDelete){
+                    Toast.makeText(MainActivity.this,"Delete",Toast.LENGTH_SHORT).show();
+                }
+                if (item.getItemId()==R.id.itmEdit) {
+                    Toast.makeText(MainActivity.this, "Edit", Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            }
+        });
         popup.show();
     }
     /**
