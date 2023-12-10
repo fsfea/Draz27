@@ -182,7 +182,12 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<MyTasks>tsksAdapter = new ArrayAdapter<MyTasks>(this, android.R.layout.simple_dropdown_item_1line);
         tsksAdapter.addAll(allTasks);
         lstvTasks.setAdapter((tsksAdapter));
-        
+        lstvTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showPopMenu(view,tsksAdapter.getItem(i));
+            }
+        });
     }
     @Override
     protected void onPause() {
