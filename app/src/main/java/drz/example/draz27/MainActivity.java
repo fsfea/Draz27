@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
         lstvTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                showPopMenu(view,tsksAdapter.getItem(i));
+                ShowPopUpMenu(view,tsksAdapter.getItem(i));
             }
         });
     }
