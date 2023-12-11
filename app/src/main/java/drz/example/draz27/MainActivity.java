@@ -97,8 +97,9 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
-    public void ShowPopUpMenu (View v)
+    public void ShowPopUpMenu (View v,MyTasks item)
     {
+
         PopupMenu popup = new PopupMenu(this,v);
         popup.inflate(R.menu.popup_menu);
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -184,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
         lstvTasks.setAdapter((tsksAdapter));
         lstvTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int i, long I) {
                 ShowPopUpMenu(view,tsksAdapter.getItem(i));
             }
         });
