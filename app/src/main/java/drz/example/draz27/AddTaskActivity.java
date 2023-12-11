@@ -44,7 +44,11 @@ public class AddTaskActivity extends AppCompatActivity {
         autoEtSubj = findViewById(R.id.autoEtSubj);
         initAutoEtSubjects();
     }
-private void initAutoEtSubjects()
+
+    /**
+     *
+     */
+    private void initAutoEtSubjects()
 {
 
       AppDatabase db =AppDatabase.getDB(getApplicationContext());

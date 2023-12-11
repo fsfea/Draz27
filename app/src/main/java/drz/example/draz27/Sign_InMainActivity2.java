@@ -40,12 +40,16 @@ public class Sign_InMainActivity2 extends AppCompatActivity {
     }
 
     private void checkEmailPassw() {
-        boolean isAllOK = true;
+        boolean isAllOK = true;//يحوي نتيجة فحص الحقول ان كانت سليمة
+        //استخراج النص من الحقل ايميلة
         String email = etShortTitle.getText().toString();
+        //استخراج نص من كلمة المرور
         String password = etPassword.getText().toString();
+        //فحص الايميل ان كان طوله اقل من 6 او لا يحوي @ فهو خطأ
         if (email.length() < 6 | email.contains("@") == false) {
+            //تعديل المتغير ليدل على ان الفحص يعطي حقل بريد
             isAllOK = false;
-
+//عرض ملاحظة خطأ على الشاشاة داخل حقل البريد
             etShortTitle.setError("Wrong Email");
         }
         if (password.length() < 8 || password.contains(" ") == true) {
@@ -56,15 +60,18 @@ public class Sign_InMainActivity2 extends AppCompatActivity {
         if (isAllOK)
         {
             Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
+            //بناء قاعدة بيانات وارجاع مؤشر عليها 1
             AppDatabase db = AppDatabase.getDB(getApplicationContext());
+            //مؤشر لكائن عمليات الجدول 2
             MyuserQuery userQuery = (MyuserQuery) db.getMyUserQuery();
+            //ان لم يكن موجود null استدعاء العمليه التي تنفذ الاستعلام والذي يفحص البريد وكلمة المرور ويعيد كائنا ان كان موجود او3
             MyUser myUser = userQuery.checkEmailPassw(email, password);
-            if (myUser == null)
+            if (myUser == null)//هل لا يوجد كائن حسب الايميل والباسورد
             {
                 Toast.makeText(this, "Wrong Email Or Password", Toast.LENGTH_LONG).show();
             }
                  else
-            {
+            {//ان كان هنالك حساب حساب الايميل والباسورد ننتقل الى الشاشة الرئيسية
                 Intent i = new Intent(Sign_InMainActivity2.this, MainActivity.class);
                 startActivity(i);
 
