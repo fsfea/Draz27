@@ -72,12 +72,12 @@ private void initAutoEtSubjects()
         String short_title = etShortTitle.getText().toString();
         String Text = etText.getText().toString();
         String importance = tvImpoertance.getText().toString();
-        if (short_title.length() < 8 || short_title.contains(" ") == true) {
+        if (short_title.length() < 3 || short_title.contains(" ") == true) {
 
             isAllOK = false;
             etShortTitle.setError("Wrong short_title");
         }
-        if (Text.length() < 8 || Text.contains(" ") == true) {
+        if (Text.length() < 3 || Text.contains(" ") == true) {
 
             isAllOK = false;
             etText.setError("Wrong text");
