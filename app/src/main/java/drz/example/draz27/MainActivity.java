@@ -5,7 +5,10 @@ import static android.os.Build.VERSION_CODES.S;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.widget.TextViewCompat;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.service.controls.actions.FloatAction;
@@ -94,8 +97,30 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.itmlogOut) {
             Toast.makeText(this, "LogOut", Toast.LENGTH_SHORT).show();
+
         }
         return true;
+    }
+    public void showYesNoDialog()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Log out");
+        builder.setMessage("Are you sure");
+        AlertDialog dialog = builder.create();
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+Toast.makeText(MainActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
+finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        })
+        dialog.show();
     }
     public void ShowPopUpMenu (View v,MyTasks item)
     {
