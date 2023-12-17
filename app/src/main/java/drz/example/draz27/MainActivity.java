@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.itmlogOut) {
             Toast.makeText(this, "LogOut", Toast.LENGTH_SHORT).show();
-
+         showYesNoDialog();
         }
         return true;
     }
@@ -109,17 +109,18 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(DialogInterface dialog, int i) {
 Toast.makeText(MainActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
 finish();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-
+            public void onClick(DialogInterface dialog, int i) {
+                Toast.makeText(MainActivity.this,"Signing out",Toast.LENGTH_SHORT).show();
             }
-        })
+        });
+        AlertDialog dialog1 = builder.create();
         dialog.show();
     }
     public void ShowPopUpMenu (View v,MyTasks item)
