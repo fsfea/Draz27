@@ -8,6 +8,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
+import drz.example.draz27.data.SubjectTable.MySubject;
 import drz.example.draz27.data.SubjectTable.MySubjectQuery;
 import drz.example.draz27.data.mytasksTable.MyTasks;
 import drz.example.draz27.data.mytasksTable.MyTasksQuery;
@@ -25,13 +26,13 @@ version
  * وتوفر لنا كائن للتعامل مع قاعدة البيانات
  */
 
-public abstract class  AppDataBase extends RoomDatabase
+public abstract class  AppDatabase extends RoomDatabase
 {
 
         /**
          * كائن للتعامل مع قاعدة البيانات
          */
-        private static AppDataBase db;
+        private static AppDatabase db;
 
         /**
          * يعيد كائن لعمليات جدول المستعملين
@@ -56,12 +57,12 @@ public abstract class  AppDataBase extends RoomDatabase
          * @param context
          * @return
          */
-        public static AppDataBase getDB(Context context)
+        public static AppDatabase getDB(Context context)
         {
                 if(db==null)
                 {
                         db = Room.databaseBuilder(context,
-                                        AppDataBase.class,
+                                        AppDatabase.class,
                                         "samihDataBase")//اسم قاعدة اليانات
                                 .fallbackToDestructiveMigration()
                                 .allowMainThreadQueries()
