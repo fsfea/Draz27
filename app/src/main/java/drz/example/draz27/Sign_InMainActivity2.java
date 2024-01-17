@@ -63,7 +63,7 @@ public class Sign_InMainActivity2 extends AppCompatActivity {
             //بناء قاعدة بيانات وارجاع مؤشر عليها 1
             AppDatabase db = AppDatabase.getDB(getApplicationContext());
             //مؤشر لكائن عمليات الجدول 2
-            MyuserQuery userQuery = (MyuserQuery) db.getMyUserQuery();
+            MyuserQuery userQuery = (MyuserQuery) db.getMyuserQuery();
             //ان لم يكن موجود null استدعاء العمليه التي تنفذ الاستعلام والذي يفحص البريد وكلمة المرور ويعيد كائنا ان كان موجود او3
             MyUser myUser = userQuery.checkEmailPassw(email, password);
             if (myUser == null)//هل لا يوجد كائن حسب الايميل والباسورد

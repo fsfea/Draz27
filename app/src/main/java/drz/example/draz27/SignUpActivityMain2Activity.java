@@ -79,7 +79,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
         if (isAllOK) {
             Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
             AppDatabase db = AppDatabase.getDB(getApplicationContext());
-            MyuserQuery userQuery =db.getMyUserQuery();
+            MyuserQuery userQuery =db.getMyuserQuery();
             if (userQuery.checkEmail(email)!= null)
             {
                 etShortTitle.setError("found email");
