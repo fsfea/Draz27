@@ -1,5 +1,6 @@
 package drz.example.draz27;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -7,7 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import drz.example.draz27.data.AppDatabase;
 import drz.example.draz27.data.usersTable.MyUser;
@@ -92,6 +97,24 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
                 userQuery.insert(myUser);
                 finish();
             }
+        }
+        if(isAllOK)
+        {
+            //עצם לביצוע רישום كائن لعملية التسجيل
+            FirebaseAuth auth=FirebaseAuth.getInstance();
+            //יצירתלחשבון בעזרת מיל ן סיסמא
+            auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override//התגובה שמתקבל הניסיון הרישום בענן
+                public void onComplete(@NonNull Task<AuthResult> task) {//הפרמטר מכיל מידע מהשרת על תוצאת הבקשה לרישום
+                    if (task.isSuccessful()) {//אם הפעולה הצליחה
+                        Toast.makeText(SignUpActivityMain2Activity.this, "Signing up Succeeded", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Toast.makeText(SignUpActivityMain2Activity.this, "Signing up Faild", Toast.LENGTH_SHORT).show();
+                        etShortTitle.setError(task.getException().getMessage());//הצגת הודעת השגיאה שהקבלה מהענן
+                    }
+                }
+            });
         }
     }
 
