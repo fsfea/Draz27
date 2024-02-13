@@ -23,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -97,7 +98,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.itmlogOut) {
             Toast.makeText(this, "LogOut", Toast.LENGTH_SHORT).show();
-         showYesNoDialog();
+            FirebaseAuth.getInstance().signOut();
+            finish();
         }
         return true;
     }
