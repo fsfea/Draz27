@@ -13,6 +13,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.auth.User;
 
 import drz.example.draz27.data.AppDatabase;
 import drz.example.draz27.data.usersTable.MyUser;
@@ -116,6 +118,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
                 }
             });
         }
+
     }
 
         public void onClickSignUp (View v)
@@ -125,4 +128,35 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
 
         }
 
+    private void SaveUser_FB(String email, String fulname, String phone,String password ){
+        //مؤشر لقاعدة البيانات
+        FirebaseFirestore db= FirebaseFirestore.getInstance();
+        //استخراج الرقم المميز للمستعمل الذي سجل الدخول لاستعماله كاسم لل دوكيومينت
+        String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //بناء الكائن الذي سيتم حفظه
+        MyUser profiles=new MyUser();
+        profiles.setEmail(email);
+        profiles.setFullName(fulname);
+        profiles.setPhone(phone);
+        profiles.setPassw(password);
+        ;
+        //اضافة كائن "لمجموعة" المستعملين ومعالج حدث لفحص   نجاح المطلوب
+        // معالج حدث لفحص هل تم المطلوب من قاعدة البيانات
+        db.collection("MyUsers").document(uid).set(profiles).addOnCompleteListener(new OnCompleteListener<Void>() {
+            //داله معالجه الحدث
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                // هل تم تنفيذ المطلوب بنجاح
+                if (task.isSuccessful()) {
+                    Toast.makeText(SignUpActivityMain2Activity.this, "Succeeded to Add profile", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                else {
+                    Toast.makeText(SignUpActivityMain2Activity.this,"Failed to Add Profile", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
+
+}
+
