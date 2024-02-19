@@ -110,6 +110,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {//הפרמטר מכיל מידע מהשרת על תוצאת הבקשה לרישום
                     if (task.isSuccessful()) {//אם הפעולה הצליחה
                         Toast.makeText(SignUpActivityMain2Activity.this, "Signing up Succeeded", Toast.LENGTH_SHORT).show();
+
                         finish();
 
                     } else {
@@ -129,21 +130,22 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
 
         }
 
-    private void SaveUser_FB(String email, String fullname, String phone,String password ){
+    private void SaveUser_FB(String email, String fullname, String phone,String password   ){
         //مؤشر لقاعدة البيانات
         FirebaseFirestore db= FirebaseFirestore.getInstance();
         //استخراج الرقم المميز للمستعمل الذي سجل الدخول لاستعماله كاسم لل دوكيومينت
         String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
         //بناء الكائن الذي سيتم حفظه
-        MyUser profiles=new MyUser();
-        profiles.setEmail(email);
-        profiles.setFullName(fullname);
-        profiles.setPhone(phone);
-        profiles.setPassw(password);
+        MyUser user=new MyUser();
+        user.setEmail(email);
+        user.setFullName(fullname);
+        user.setPhone(phone);
+        user.setPassw(password);
+
         ;
         //اضافة كائن "لمجموعة" المستعملين ومعالج حدث لفحص   نجاح المطلوب
         // معالج حدث لفحص هل تم المطلوب من قاعدة البيانات
-        db.collection("MyUsers").document(uid).set(profiles).addOnCompleteListener(new OnCompleteListener<Void>() {
+        db.collection("MyUsers").document(uid).set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             //داله معالجه الحدث
             @Override
             public void onComplete(@NonNull Task<Void> task) {
