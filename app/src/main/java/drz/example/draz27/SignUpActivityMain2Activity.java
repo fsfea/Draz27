@@ -112,6 +112,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
                         Toast.makeText(SignUpActivityMain2Activity.this, "Signing up Succeeded", Toast.LENGTH_SHORT).show();
 
                         finish();
+                        SaveUser_FB(email ,name,phone,password);
 
                     } else {
                         Toast.makeText(SignUpActivityMain2Activity.this, "Signing up Faild", Toast.LENGTH_SHORT).show();
@@ -130,7 +131,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
 
         }
 
-    private void SaveUser_FB(String email, String fullname, String phone,String password   ){
+    private void SaveUser_FB(String email, String name, String phone,String password  ){
         //مؤشر لقاعدة البيانات
         FirebaseFirestore db= FirebaseFirestore.getInstance();
         //استخراج الرقم المميز للمستعمل الذي سجل الدخول لاستعماله كاسم لل دوكيومينت
@@ -138,10 +139,10 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
         //بناء الكائن الذي سيتم حفظه
         MyUser user=new MyUser();
         user.setEmail(email);
-        user.setFullName(fullname);
+        user.setFullName(name);
         user.setPhone(phone);
         user.setPassw(password);
-
+        user.setKeyid(uid);
         ;
         //اضافة كائن "لمجموعة" المستعملين ومعالج حدث لفحص   نجاح المطلوب
         // معالج حدث لفحص هل تم المطلوب من قاعدة البيانات
@@ -153,7 +154,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(SignUpActivityMain2Activity.this, "Succeeded to Add profile", Toast.LENGTH_SHORT).show();
                     finish();
-                    SaveUser_FB(email ,fullname,phone,password);
+                    SaveUser_FB(email ,name,phone,password);
                 }
                 else {
                     Toast.makeText(SignUpActivityMain2Activity.this,"Failed to Add Profile", Toast.LENGTH_SHORT).show();
