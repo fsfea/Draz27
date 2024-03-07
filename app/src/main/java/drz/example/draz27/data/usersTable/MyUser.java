@@ -20,6 +20,7 @@ public class MyUser {
     public String email;// بحالة لم يتم اعطاء اسم للعامود يكون اسم الصفة اسم العامود
     public String phone;
     public String passw;
+    public String key;
 
 
     @Override
@@ -72,5 +73,13 @@ public class MyUser {
 
     public void setPassw(String passw) {
         this.passw = passw;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }
