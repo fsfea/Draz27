@@ -142,7 +142,7 @@ public class SignUpActivityMain2Activity extends AppCompatActivity {
         user.setFullName(name);
         user.setPhone(phone);
         user.setPassw(password);
-        user.setKeyid(uid);
+        user.setKey(uid);
         ;
         //اضافة كائن "لمجموعة" المستعملين ومعالج حدث لفحص   نجاح المطلوب
         // معالج حدث لفحص هل تم المطلوب من قاعدة البيانات
